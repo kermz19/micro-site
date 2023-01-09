@@ -1,8 +1,11 @@
 import React from 'react';
+import Header from './components/Header';
+import "./style.css"
 
 const  App = () => {
     return (
-        <div>
+        <div className="App">
+            <Header/>
             <h1>
             Welcome to the micro-site
         </h1>
