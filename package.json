@@ -2,10 +2,11 @@
   "name": "micro-site",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "scripts": {
     "test": "test",
-    "start": "webpack-dev-server",
-    "build": "Webpack"
+    "start": "webpack-dev-server --mode development",
+    "build": "Webpack --mode development"
   },
   "author": "Kerwin Charles",
   "license": "ISC",
@@ -25,7 +26,11 @@
     "path": "^0.12.7",
     "plugin-jest": "^1.0.0",
     "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "webpack-dev-server": "^4.11.1"
   }
 }

@@ -1,5 +1,7 @@
 const path = require("path");
-const webpack = require("webpack");
+// const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
     entry: "./src/index.js",
@@ -9,8 +11,12 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: "babel-loader",
-                options: {presets: ["@babel/preset-env"]}
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: [["@babel/preset-env", {targets: "defaults"}], ["@babel/preset-react", {runtime: "automatic"}]]}
+                },
+                
             },
             {
                 test: /\.css$/,
@@ -20,8 +26,8 @@ module.exports = {
     },
     resolve: {extensions: ["*", ".js", ".jsx"]},
     output: {
-        path: path.resolve(__dirname, "dist/"),
-        publicPath: "/dist/",
+        path: path.resolve(__dirname, "/dist"),
+        publicPath: "/",
         filename: "bundle.js"
     },
     devServer: {
@@ -31,6 +37,10 @@ module.exports = {
         },
         port: 3000,
         hot: true,
+        open: true,
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()]
+    plugins: [new HtmlWebpackPlugin( {
+        template: "./src/index.html"
+    }
+    )]
 }

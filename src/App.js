@@ -1,10 +1,13 @@
 import React from 'react';
 
-function App() {
+const  App = () => {
     return (
-        <h1>
+        <div>
+            <h1>
             Welcome to the micro-site
         </h1>
+        </div>
+        
     )
 }
 
